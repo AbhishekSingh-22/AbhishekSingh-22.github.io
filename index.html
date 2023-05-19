@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="landingpagecss.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="https://kit.fontawesome.com/fd28305bd0.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:wght@700&family=Caveat:wght@600&family=EB+Garamond:ital,wght@1,500&family=Fira+Sans+Condensed:wght@500&family=Golos+Text:wght@400;800;900&family=Gruppo&family=IBM+Plex+Sans+Condensed:ital,wght@1,500&family=Noto+Sans&family=Nunito+Sans:wght@300;700&family=Oswald:wght@400;500&family=Poltawski+Nowy:wght@500&family=Roboto:ital@0;1&family=Russo+One&family=Sono:wght@500&family=Source+Sans+Pro:wght@700&family=Space+Grotesk:wght@400;700&family=Tilt+Warp&family=Work+Sans:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" type="image" href="/Logofortitle.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshman | Let's Start Together</title>
+</head>
+
+<body>
+  <header>
+    <!-- -------------------------------------------------------------------Navbar---------------------------------------------- -->
+    <nav>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">
+            <img src="/Logo_Title.png" alt="Logo" width="300" height="60" class="d-inline-block align-text-top">
+          </a>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <button type="button">Subscribe</button>
+          </ul>
+        </div>
+        <nav>
+          <!-- -----------------------------------------------------------------Navbar(responsive)------------------------------------- -->
+          <div class="navbar-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+          <ul class="navbar-menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a><button type="button">Subscribe</button></a></li>
+          </ul>
+        </nav>
+      </nav>
+      <!-- -----------------------------------------------------------------Heading and Description-------------------------------- -->
+      <div class="content-area">
+        <div class="head"><strong>'ProfCheck'</strong> is a tool to filter<br>
+          <center>Professors for <strong>FFCS.</strong></center></br>
+        </div>
+        <div class="desc">Freshman will help you filter profs before FFCS so that <br>
+          <center>you'll not regret later!</center></br>
+        </div>
+        <!-- -----------------------------------------------------------------Search Area-------------------------------------------- -->
+        <div class="search-bar">
+          <div>
+            <input type="text" id="searchInput" placeholder="Enter a name" oninput="filterDropdown()">
+            <select id="dropdown">
+              <option value="option1">Name</option>
+              <option value="Suresh Dara">Suresh Dara</option>
+              <option value="Satya Prakash">Satya Prakash</option>
+              <option value="Priyank Nema">Priyank Nema</option>
+              <option value="Manoj Acharya">Manoj Acharya</option>
+              <option value="Manshi singh">Manshi singh</option>
+            </select>
+            <button id="submit">Find out!</button>
+          </div>
+        </div>
+        <div class="results">
+          <h3>Review:</h3>
+          <p id="selectedOption"></p>
+        </div>
+        <!-- ---------------------------------------------------------Resposive Navbar Toggle button JS------------------------------- -->
+        <script>
+          const navbarToggle = document.querySelector('.navbar-toggle');
+          const navbarMenu = document.querySelector('.navbar-menu');
+
+          navbarToggle.addEventListener('click', function () {
+            navbarMenu.classList.toggle('show');
+          });
+
+        </script>
+        <!-- -----------------------------------------------------------Search Result JS------------------------------------------------- -->
+        <script>
+          var originalDropdownOptions = Array.from(document.getElementById("dropdown").options);
+
+          function filterDropdown() {
+            var searchInput = document.getElementById("searchInput").value.toLowerCase();
+            var dropdown = document.getElementById("dropdown");
+
+            // Clear the existing dropdown options
+            dropdown.innerHTML = "";
+
+            // Create a new dropdown with filtered options
+            var filteredOptions = originalDropdownOptions.filter(function (option) {
+              return option.text.toLowerCase().includes(searchInput);
+            });
+
+            for (var i = 0; i < filteredOptions.length; i++) {
+              dropdown.appendChild(filteredOptions[i]);
+            }
+          }
+
+          function search() {
+            var dropdown = document.getElementById("dropdown");
+            var selectedOption = document.getElementById("selectedOption");
+
+            // Get the selected option
+            var selectedIndex = dropdown.selectedIndex;
+            if (selectedIndex !== -1) {
+              var selectedText = dropdown.options[selectedIndex].text;
+              selectedOption.textContent = selectedText;
+            } else {
+              selectedOption.textContent = "";
+            }
+          }
+
+          //******************** Added By Abhishek - displaying teachers with their properties*********
+
+          // Creating an object for the details of each teacher
+          const PROFFESSORS = {
+            'Suresh Dara': ["Awesome Teacher, Go with him for sure","#00ff00"],
+            'Satya Prakash':["EK NUMBER TEACHER","#00ff00"],
+            'Priyank Nema':["Never choose her, Doesen't give marks","red"],
+            'Manoj Acharya':["THEEK THAAK","yellow"],
+            'Manshi singh':["THEEK HI hai. Par maza aayega","yellow"],
+
+          };
+
+          // Accessing Each proffesor
+          for(let prof in PROFFESSORS){
+            console.log(PROFFESSORS[prof]);
+          }
+
+          //capturing the selected value in the dropdown
+          document.getElementById("submit").addEventListener('click', function () {
+            let dropdown = document.getElementById("dropdown");
+            console.log(dropdown.value);
+            let selectedProf = dropdown.value;
+          
+            // checking whether the selected Proffessors detail is present in our Object or not
+            if( selectedProf in PROFFESSORS){
+              let selectedOption = document.getElementById("selectedOption");
+              profDesc = PROFFESSORS[selectedProf][0];        
+              profColor = PROFFESSORS[selectedProf][1];
+              
+              // Fetching Review of the selected Proffessor
+              selectedOption.innerHTML = `${profDesc}`;
+              selectedOption.setAttribute("style", `background-color:${profColor};`);
+
+              
+          }
+          else{
+            let selectedOption = document.getElementById("selectedOption");
+            selectedOption.innerHTML = `Please Select a Professor from the above Dropdown list`;
+            selectedOption.setAttribute("style", `color: #f0ff00;`);
+          }
+          })
+
+
+
+
+
+
+
+
+        </script>
+        <!-- ---------------------------------------------------------------------To be continued--------------------------------------------- -->
+    </nav>
+  </header>
+
+
+
+</body>
+
+</html>
