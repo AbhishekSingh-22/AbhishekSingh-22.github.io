@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:wght@700&family=Caveat:wght@600&family=EB+Garamond:ital,wght@1,500&family=Fira+Sans+Condensed:wght@500&family=Golos+Text:wght@400;800;900&family=Gruppo&family=IBM+Plex+Sans+Condensed:ital,wght@1,500&family=Noto+Sans&family=Nunito+Sans:wght@300;700&family=Oswald:wght@400;500&family=Poltawski+Nowy:wght@500&family=Roboto:ital@0;1&family=Russo+One&family=Sono:wght@500&family=Source+Sans+Pro:wght@700&family=Space+Grotesk:wght@400;700&family=Tilt+Warp&family=Work+Sans:wght@500&display=swap"
     rel="stylesheet">
-  <link rel="shortcut icon" type="image" href="/Logofortitle.png">
+  <link rel="shortcut icon" type="image" href="Logofortitle.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Freshman | Let's Start Together</title>
 </head>
@@ -24,7 +24,7 @@
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="">
-            <img src="/Logo_Title.png" alt="Logo" width="300" height="60" class="d-inline-block align-text-top">
+            <img src="Logo_Title.png" alt="Logo" width="300" height="60" class="d-inline-block align-text-top">
           </a>
           <ul>
             <li><a href="#">About</a></li>
@@ -61,10 +61,35 @@
             <select id="dropdown">
               <option value="option1">Name</option>
               <option value="Suresh Dara">Suresh Dara</option>
-              <option value="Satya Prakash">Satya Prakash</option>
               <option value="Priyank Nema">Priyank Nema</option>
               <option value="Manoj Acharya">Manoj Acharya</option>
-              <option value="Manshi singh">Manshi singh</option>
+              <option value="Ujjwal Kumar Mishra">Ujjwal Kumar Mishra</option>
+              <option value="Aanjan Kumar">Aanjan Kumar</option>
+              <option value="Chandrama Swain">Chandrama Swain</option>
+              <option value="Satyam Ravi">Satyam Ravi</option>
+              <option value="Govind Prasad Pandya">Govind Prasad Pandya</option>
+              <option value="Saurabh Bhargava">Saurabh Bhargava</option>
+              <option value="Suchismita Patra">Suchismita Patra</option>
+              <option value="Pooja Lalwani">Pooja Lalwani</option>
+              <option value="Ravi Bhatt">Ravi Bhatt</option>
+              <option value="Sharmila Joseph">Sharmila Joseph</option>
+              <option value="Dondu Harish">Dondu Harish</option>
+              <option value="S. Periyanagi">S. Periyanagi</option>
+              <option value="Rajdeep Singh Payal">Rajdeep Singh Payal</option>
+              <option value="D.S Devraju">D.S Devraju</option>
+              <option value="Virendra Singh Kushwaha">Virendra Singh Kushwaha</option>
+              <option value="Arindam Gosh">Arindam Gosh</option>
+              <option value="Hemant Nashine">Hemant Nashine</option>
+              <option value="Anita Yadav">Anita Yadav</option>
+              <option value="Nikhil Pateria">Nikhil Pateria</option>
+              <option value="Bhavana Bhagerwal">Bhavana Bhagerwal</option>
+              <option value="Ankit Pal">Ankit Pal</option>
+              <option value="Javed Khan">Javed Khan</option>
+              <option value="Priyanka Roy">Priyanka Roy</option>
+              <option value="KK Nair">KK Nair</option>
+              <option value="Vinod Bhatt">Vinod Bhatt</option>
+              <option value="Ashok Kumar Baral">Ashok Kumar Baral</option>
+              <option value="Rajeev Saxena">Rajeev Saxena</option>
             </select>
             <button id="submit">Find out!</button>
           </div>
@@ -73,6 +98,9 @@
           <h3>Review:</h3>
           <p id="selectedOption"></p>
         </div>
+        </div>
+
+
         <!-- ---------------------------------------------------------Resposive Navbar Toggle button JS------------------------------- -->
         <script>
           const navbarToggle = document.querySelector('.navbar-toggle');
@@ -118,56 +146,9 @@
             }
           }
 
-          //******************** Added By Abhishek - displaying teachers with their properties*********
-
-          // Creating an object for the details of each teacher
-          const PROFFESSORS = {
-            'Suresh Dara': ["Awesome Teacher, Go with him for sure","#00ff00"],
-            'Satya Prakash':["EK NUMBER TEACHER","#00ff00"],
-            'Priyank Nema':["Never choose her, Doesen't give marks","red"],
-            'Manoj Acharya':["THEEK THAAK","yellow"],
-            'Manshi singh':["THEEK HI hai. Par maza aayega","yellow"],
-
-          };
-
-          // Accessing Each proffesor
-          for(let prof in PROFFESSORS){
-            console.log(PROFFESSORS[prof]);
-          }
-
-          //capturing the selected value in the dropdown
-          document.getElementById("submit").addEventListener('click', function () {
-            let dropdown = document.getElementById("dropdown");
-            console.log(dropdown.value);
-            let selectedProf = dropdown.value;
-          
-            // checking whether the selected Proffessors detail is present in our Object or not
-            if( selectedProf in PROFFESSORS){
-              let selectedOption = document.getElementById("selectedOption");
-              profDesc = PROFFESSORS[selectedProf][0];        
-              profColor = PROFFESSORS[selectedProf][1];
-              
-              // Fetching Review of the selected Proffessor
-              selectedOption.innerHTML = `${profDesc}`;
-              selectedOption.setAttribute("style", `background-color:${profColor};`);
-
-              
-          }
-          else{
-            let selectedOption = document.getElementById("selectedOption");
-            selectedOption.innerHTML = `Please Select a Professor from the above Dropdown list`;
-            selectedOption.setAttribute("style", `color: #f0ff00;`);
-          }
-          })
-
-
-
-
-
-
-
-
         </script>
+
+        <script src="index.js"></script>
         <!-- ---------------------------------------------------------------------To be continued--------------------------------------------- -->
     </nav>
   </header>
