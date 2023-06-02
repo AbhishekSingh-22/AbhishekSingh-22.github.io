@@ -17,6 +17,7 @@
   <title>Freshman | Let's Start Together</title>
 </head>
 <!-- -----------------------------------Just checking the commit-----------------------------  -->
+
 <body>
   <header>
     <!-- -------------------------------------------------------------------Navbar---------------------------------------------- -->
@@ -98,77 +99,78 @@
           <h3>Review:</h3>
           <p id="selectedOption"></p>
         </div>
-        </div>
+      </div>
 
 
-         <!-- ---------------------------------------------------------------------footer------------------------------------------------ -->
-        <div class="footer">
-          <div>
-            <img src="Logopng.png" class="logoforfoot" height="80" width="80">
-            <footer>Get the immersive and smooth experience<br> through starting off your engineering career<br> with the help of Freshmen.
+      <!-- ---------------------------------------------------------------------footer------------------------------------------------ -->
+      <div class="footer">
+        <div>
+          <img src="Logopng.png" class="logoforfoot" height="80" width="80">
+          <footer>Get the immersive and smooth experience<br> through starting off your engineering career<br> with the
+            help of Freshmen.
             </br></footer>
-          </div>
-            <ul class="quicklink"><b>Quick links</b>
-              <li><a href="#">ProfCheck</a></li>
-              <li><a href="#">GPA Calculator</a></li>
-              <li><a href="#">OD Finder</a></li>
-              <li><a href="#">AcadHelp</a></li>
-            </ul>
-            <ul class="email">
-              <b>Subscribe for notifications</b>
-              <input class="subscribe" placeholder="Enter your email"></input>
-              <button id="Subscribe2">Subscribe</button>
-            </ul>
         </div>
-        <!-- ---------------------------------------------------------Resposive Navbar Toggle button JS------------------------------- -->
-        <script>
-          const navbarToggle = document.querySelector('.navbar-toggle');
-          const navbarMenu = document.querySelector('.navbar-menu');
+        <ul class="quicklink"><b>Quick links</b>
+          <li><a href="#">ProfCheck</a></li>
+          <li><a href="#">GPA Calculator</a></li>
+          <li><a href="#">OD Finder</a></li>
+          <li><a href="#">AcadHelp</a></li>
+        </ul>
+        <ul class="email">
+          <b>Subscribe for notifications</b>
+          <input class="subscribe" placeholder="Enter your email"></input>
+          <button id="Subscribe2">Subscribe</button>
+        </ul>
+      </div>
+      <!-- ---------------------------------------------------------Resposive Navbar Toggle button JS------------------------------- -->
+      <script>
+        const navbarToggle = document.querySelector('.navbar-toggle');
+        const navbarMenu = document.querySelector('.navbar-menu');
 
-          navbarToggle.addEventListener('click', function () {
-            navbarMenu.classList.toggle('show');
+        navbarToggle.addEventListener('click', function () {
+          navbarMenu.classList.toggle('show');
+        });
+
+      </script>
+      <!-- -----------------------------------------------------------Search Result JS------------------------------------------------- -->
+      <script>
+        var originalDropdownOptions = Array.from(document.getElementById("dropdown").options);
+
+        function filterDropdown() {
+          var searchInput = document.getElementById("searchInput").value.toLowerCase();
+          var dropdown = document.getElementById("dropdown");
+
+          // Clear the existing dropdown options
+          dropdown.innerHTML = "";
+
+          // Create a new dropdown with filtered options
+          var filteredOptions = originalDropdownOptions.filter(function (option) {
+            return option.text.toLowerCase().includes(searchInput);
           });
 
-        </script>
-        <!-- -----------------------------------------------------------Search Result JS------------------------------------------------- -->
-        <script>
-          var originalDropdownOptions = Array.from(document.getElementById("dropdown").options);
-
-          function filterDropdown() {
-            var searchInput = document.getElementById("searchInput").value.toLowerCase();
-            var dropdown = document.getElementById("dropdown");
-
-            // Clear the existing dropdown options
-            dropdown.innerHTML = "";
-
-            // Create a new dropdown with filtered options
-            var filteredOptions = originalDropdownOptions.filter(function (option) {
-              return option.text.toLowerCase().includes(searchInput);
-            });
-
-            for (var i = 0; i < filteredOptions.length; i++) {
-              dropdown.appendChild(filteredOptions[i]);
-            }
+          for (var i = 0; i < filteredOptions.length; i++) {
+            dropdown.appendChild(filteredOptions[i]);
           }
+        }
 
-          function search() {
-            var dropdown = document.getElementById("dropdown");
-            var selectedOption = document.getElementById("selectedOption");
+        function search() {
+          var dropdown = document.getElementById("dropdown");
+          var selectedOption = document.getElementById("selectedOption");
 
-            // Get the selected option
-            var selectedIndex = dropdown.selectedIndex;
-            if (selectedIndex !== -1) {
-              var selectedText = dropdown.options[selectedIndex].text;
-              selectedOption.textContent = selectedText;
-            } else {
-              selectedOption.textContent = "";
-            }
+          // Get the selected option
+          var selectedIndex = dropdown.selectedIndex;
+          if (selectedIndex !== -1) {
+            var selectedText = dropdown.options[selectedIndex].text;
+            selectedOption.textContent = selectedText;
+          } else {
+            selectedOption.textContent = "";
           }
+        }
 
-        </script>
+      </script>
 
-        <script src="index.js"></script>
-        <!-- ---------------------------------------------------------------------To be continued--------------------------------------------- -->
+      <script src="index.js"></script>
+      <!-- ---------------------------------------------------------------------To be continued--------------------------------------------- -->
     </nav>
   </header>
 
