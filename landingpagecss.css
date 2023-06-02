@@ -290,6 +290,50 @@ h3 {
     grid-template-columns: 1 span;
     grid-template-rows: 130px 80px 150px;
   }
+    /* -------------footer-------------- */
+  .footer{
+    display: grid;
+    grid-template-rows: 250px 180px 170px;
+    grid-template-columns: 405px;
+    height: 600px;
+    background-color:#33009a;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+  }
+  .logoforfoot{
+    padding-left: 12rem;
+  }
+  .logoforfoot{
+    padding-top: 3rem;
+  }
+  footer{
+    padding-left: 1.8rem;
+    font-size: 1.1rem;
+    padding-top: 1rem;
+    text-align: center;
+  }
+  .quicklink{
+    padding-left: 1.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    padding-top: 0.6rem;
+    margin: 0;
+  }
+  .email input{
+    height: 25px;
+    width: 210px;
+    margin: 7px;
+    border-radius: 7px;
+    border: white;
+    padding: 10px;
+    padding-top: 10px;
+  }
+  .email{
+    padding-left: 2rem;
+  }
+  .email b{
+    padding-left: 1.1rem;
+  }
   /* -------------------------------------------------------------------For smaller width devices--------------------------------------------- */
   @media (max-width: 398px) {
     .head {
@@ -331,6 +375,49 @@ h3 {
       border-radius: 10px;
       border: #fff;
       background-color: white;
+    }
+        .footer{
+      display: grid;
+      grid-template-rows: 250px 180px 170px;
+      grid-template-columns: 370px;
+      height: 600px;
+      background-color:#33009a;
+      border-top-right-radius: 20px;
+      border-top-left-radius: 20px;
+    }
+    .logoforfoot{
+      padding-left: 11rem;
+    }
+    .logoforfoot{
+      padding-top: 3rem;
+    }
+    footer{
+      padding-left: 10px;
+      font-size: 0.95rem;
+      padding-top: 1rem;
+      text-align: center;
+    }
+    .quicklink{
+      padding-left: 0.6rem;
+      font-size: 1rem;
+      text-align: center;
+      padding-top: 0.6rem;
+      margin: 0;
+    }
+    .email input{
+      height: 17px;
+      width: 190px;
+      margin: 7px;
+      border-radius: 7px;
+      border: white;
+      padding: 10px;
+      padding-top: 10px;
+    }
+    .email{
+      padding-left: 1.2rem;
+    }
+    .email b{
+      padding-left: 0.9rem;
     }
   }
 }
