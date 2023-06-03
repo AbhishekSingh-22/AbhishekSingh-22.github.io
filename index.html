@@ -14,11 +14,17 @@
     rel="stylesheet">
   <link rel="shortcut icon" type="image" href="Logofortitle.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Freshman | Let's Start Together</title>
+  <title>Freshmen | Let's Start Together</title>
 </head>
 <!-- -----------------------------------Just checking the commit-----------------------------  -->
 
 <body>
+  <!-- preloader div  -->
+  <div id="preloader">
+    <img src="preloader.gif" alt="">
+  </div>
+
+
   <header>
     <!-- -------------------------------------------------------------------Navbar---------------------------------------------- -->
     <nav>
@@ -47,6 +53,7 @@
           </ul>
         </nav>
       </nav>
+    </header>
       <!-- -----------------------------------------------------------------Heading and Description-------------------------------- -->
       <div class="content-area">
         <div class="head"><strong>'ProfCheck'</strong> is a tool to filter<br>
@@ -169,10 +176,31 @@
 
       </script>
 
+      <script>
+        let preloader = document.getElementById('preloader');
+        let completed = false;
+
+  window.addEventListener("load", setTimeout(function(completed){
+    preloader.style.animation = "preloader-fade-out 1s ease-in-out forwards";
+    completed = true;
+
+    if (completed == true){
+      setTimeout(function(){
+        preloader.style.display = "none";
+
+      },1000);
+    }
+
+
+  }, 2000));
+
+
+      </script>
+
       <script src="index.js"></script>
       <!-- ---------------------------------------------------------------------To be continued--------------------------------------------- -->
     </nav>
-  </header>
+
 
 
 
