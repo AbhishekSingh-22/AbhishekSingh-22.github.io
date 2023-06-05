@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
 }
+
+/* Customizing color of selected area by the user */
+::selection{
+  color:black;
+  background-color:yellow ;
+}
+
 body {
     padding-top: 1rem;
     margin: 0;
@@ -60,6 +67,7 @@ header{
     padding-right: 1px;
   }
   button {
+    cursor: pointer;
     font-family: "Nunito Sans", sans-serif;
     border: none;
     background: yellow;
