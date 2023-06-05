@@ -53,7 +53,7 @@
               'Overall': 'Average',
               'Color': 'orange',
             },
-            //Here 
+           
             'Satyam Ravi':{
               'Teaching': 'Good',
               'Evaluation': 'Good',
@@ -297,15 +297,9 @@
 
           };
 
-          // Accessing Each proffesor
-          for(let prof in PROFFESSORS){
-            console.log(PROFFESSORS[prof]);
-          }
-
           //capturing the selected value in the dropdown
           document.getElementById("submit").addEventListener('click', function () {
             let dropdown = document.getElementById("dropdown");
-            console.log(dropdown.value);
             let selectedProf = dropdown.value;
           
             // checking whether the selected Proffessors detail is present in our Object or not
@@ -319,7 +313,7 @@
               let Overall = PROFFESSORS[selectedProf]['Overall'].toUpperCase();
               let Color = PROFFESSORS[selectedProf]['Color'];
 
-              console.log(Teaching, Evaluation, Behaviour, Internals, Average, Overall , Color)
+              
               
             //   Fetching Review of the selected Proffessor
               selectedOption.innerHTML = `Teaching: ${Teaching} <br>

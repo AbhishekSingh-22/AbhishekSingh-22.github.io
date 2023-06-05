@@ -597,23 +597,23 @@ h1{
 /* ------------------------------------------- Preloader added by Abhishek ----------------------------------  */
 /* **********************************************************************************************************  */
 
-#preloader{
+/* #preloader{
   display: flex;
   position: fixed;
   background-color: black;
-  height: 100vh;
+  height: 100vh; */
   /* width: 100vw; */
-  justify-content: center;
+  /* justify-content: center;
   align-items: center;
   z-index: 100;
   
-}
+} */
 
-#preloader img{
+/* #preloader img{
 
   width: 100vw;
   
-}
+} */
 
 /* -------------- Animation Keyframes ----------- */
 @keyframes preloader-fade-out{
@@ -621,3 +621,174 @@ h1{
     opacity:0;
   }
 }
+
+
+#preloader{
+  position: fixed;
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.flexcontainer{
+  position: relative;
+  /* width: 5rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.flexitem1{
+  /* overflow: hidden; */
+  /* width: fit-content; */
+  z-index: 3;
+}
+
+.flexitem1 img{
+  height: 7rem;
+  transform: translate(130%);
+  animation: shrink-move-logo 3s 0.2s 1 forwards;
+  
+}
+
+.flexitem2{
+  overflow: hidden;
+  /* width: fit-content; */
+}
+
+.flexitem2 img{
+  height: 5rem;
+  transform: translate(-100%);
+  /* width: fit-content; */
+  animation: slide-right 1.5s 2s forwards;
+  
+}
+
+.flexcontainer::after{
+  position: absolute;
+  content: "";
+  width: 4rem;
+  height: 3px;
+  border-radius: 10rem;
+  background-color: yellow;
+  bottom: 25%;
+  left:30%;
+  opacity: 0;
+  animation: loading 1s 3.7s ease-in-out infinite alternate;
+}
+
+@keyframes shrink-move-logo{
+  0%{
+      height: 7rem;
+      transform: translate(130%);
+  }
+  50%{
+      transform: translate(130%) scale(0.6);
+  }
+  100%{
+      transform: translate(0%) scale(0.6);
+  }
+}
+
+@keyframes slide-right {
+  100%{
+      transform: translate(-2%);
+  }
+}
+
+@keyframes loading{
+  0%{
+      opacity:100
+  }
+  
+  100%{
+      opacity:100;
+      transform: translate(320%);
+  }
+}
+
+
+
+
+
+/* ************************************************* Responsive Designs ******************************************* */
+
+@media (max-width : 640px){
+
+  /* .flexcontainer{
+      width: 640px;
+  } */
+
+  
+  
+  .flexitem1 img{
+      height: 5rem;
+      transform: translate(120%);
+      animation: shrink-move-logo 3s 1 forwards;
+  }
+  
+  .flexitem2{
+      overflow: hidden;
+      /* width: fit-content; */
+  }
+  
+  .flexitem2 img{
+      height: 3rem;
+      transform: translate(-100%);
+      /* width: fit-content; */
+      animation: slide-right 1.5s 1.8s forwards;
+      
+  }
+  
+  .flexcontainer::after{
+      position: absolute;
+      content: "";
+      width: 3rem;
+      height: 3px;
+      border-radius: 10rem;
+      background-color: yellow;
+      bottom: 25%;
+      left:30%;
+      opacity: 0;
+      animation: loading 1s 3.5s ease-in-out infinite alternate;
+  }
+  
+
+  @keyframes shrink-move-logo{
+      0%{
+          height: 5rem;
+          transform: translate(120%);
+      }
+      50%{
+          transform: translate(120%) scale(0.6);
+      }
+      100%{
+          transform: translate(0%) scale(0.6);
+      }
+  }
+  
+  @keyframes slide-right {
+      100%{
+          transform: translate(-2%);
+      }
+  }
+  
+  @keyframes loading{
+      0%{
+          opacity:100
+      }
+      
+      100%{
+          opacity:100;
+          transform: translate(260%);
+      }
+  }
+}
+
+
