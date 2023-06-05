@@ -143,8 +143,8 @@ select {
   justify-content: center;
   margin: none;
   padding-top: 30px;
-  grid-template-columns: 1/1 span;
-  grid-template-rows: 200px 120px 150px 400px 150px;
+  grid-template-columns: auto;
+  grid-template-rows: 200px 120px 150px 400px;
 }
 /* --Heading-- */
 .head {
@@ -193,21 +193,89 @@ h3 {
 #selectedOption {
   color: black;
 }
+
+/* ------------------------------------------------------------------------Accordion(FAQs) */
+h1{
+  font-weight: bold;
+  color: #f0ff00;
+  font-size: 2rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  padding-bottom: 0rem;
+}
+.accordion{
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+.accordion-item{
+  background-color: #33009a;
+  color: white;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.383)
+}
+.accordion-item-header{
+  padding: 0.5rem 3rem 0.5rem 1rem;
+  min-height: 3.5rem;
+  line-height: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+.accordion-item-header::after{
+  content: "\25BE";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+.accordion-item-header.active::after{
+  transform: rotate(180deg);
+}
+.accordion-item-body{
+  display: none;
+  padding: 1rem;
+  color: #f0ff00;
+  line-height: 1.5rem;
+  border-top: 2px solid #f0ff00;
+  font-family: 'Montserrat', sans-serif;
+  border-image: linear-gradient(to right, transparent , #f0ff00 , transparent )1;
+}
+.accordion-item-header.active + .accordion-item-body{
+  display: block;
+}
+
 /* -------------------------------------------------------------------------------footer----------------------------------------------------------------- */
+
 .footer{
   display: grid;
-  grid-template-columns: 300px 400px 647px;
+  /* grid-template-columns: 300px 400px 647px; */
+  grid-template-columns: auto auto auto ;
+  grid-template-rows: auto;
   background-color:#33009a;
-  height: 180px;
+  height: 14rem;
+  justify-content: space-around;
+  align-items: center;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
-footer{
+
+#footerImage{
+  text-align: center;
+}
+
+.footer-text{
   font-family: "Nunito Sans", sans-serif;
   color: white;
-  padding-left: 16px;
-  padding-bottom: 10px;
-  font-size: 0.92rem;
+  position: relative;
+  bottom:1rem;
+  /* padding-left: 16px;
+  padding-bottom: 10px; */
+  font-size: 1rem;
 }
 .quicklink{
   color: yellow;
@@ -215,10 +283,10 @@ footer{
   display: list-item;
   font-family: 'Montserrat', sans-serif;
   padding: 0;
-  padding-left: 8.3rem;
+  padding-left: 5rem;
   list-style: none;
-  padding-top: 0.9rem;
-  padding-bottom: 10px;
+  /* padding-top: 0.9rem;
+  padding-bottom: 10px; */
 
 }
 .quicklink li a{
@@ -257,13 +325,15 @@ footer{
   display: none;
 }
 .logoforfoot{
-  padding-top: 1.6rem;
+  height: 7rem;
+  width: auto;
+  /* padding-top: 1.6rem;
   padding-left: 1.2rem;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.4rem; */
 }
 
 /* ---------------------------------------------------------------------------Responsive code starts here------------------------------------------------- */
-@media (max-width: 790px) {
+@media (max-width: 790px){
   /* --Background-- */
   body {
     background-size: 120rem;
@@ -366,30 +436,31 @@ footer{
   /* -------------footer-------------- */
   .footer{
     display: grid;
-    grid-template-rows: 250px 180px 170px;
-    grid-template-columns: 405px;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
     height: 600px;
+    justify-content: center;
+    /* align-: center; */
     background-color:#33009a;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
   }
-  .logoforfoot{
-    padding-left: 12rem;
+ 
+  #footerImage{
+    text-align: center;
   }
-  .logoforfoot{
-    padding-top: 3rem;
-  }
-  footer{
-    padding-left: 1.8rem;
+
+  .footer-text{
+    /* padding-left: 1.8rem; */
     font-size: 1.1rem;
-    padding-top: 1rem;
+    /* padding-top: 1rem; */
     text-align: center;
   }
   .quicklink{
-    padding-left: 1.5rem;
+    padding-left: 0rem;
     font-size: 1.2rem;
     text-align: center;
-    padding-top: 0.6rem;
+    /* padding-top: 0.6rem; */
     margin: 0;
   }
   .email input{
@@ -402,9 +473,9 @@ footer{
     padding-top: 10px;
   }
   .email{
-    padding-left: 2rem;
+    padding-left: 0rem;
   }
-  .email b{
+  .email div b{
     padding-left: 1.1rem;
   }
 
@@ -452,30 +523,30 @@ footer{
     }
     .footer{
       display: grid;
-      grid-template-rows: 250px 180px 170px;
-      grid-template-columns: 370px;
+      grid-template-rows: auto auto auto;
+      grid-template-columns: auto;
       height: 600px;
       background-color:#33009a;
       border-top-right-radius: 20px;
       border-top-left-radius: 20px;
     }
-    .logoforfoot{
+    /* .logoforfoot{
       padding-left: 11rem;
     }
     .logoforfoot{
       padding-top: 3rem;
-    }
-    footer{
+    } */
+    .footer-text{
       padding-left: 10px;
-      font-size: 0.95rem;
+      /* font-size: 0.95rem; */
       padding-top: 1rem;
       text-align: center;
     }
     .quicklink{
-      padding-left: 0.6rem;
+      padding-left: 0rem;
       font-size: 1rem;
       text-align: center;
-      padding-top: 0.6rem;
+      /* padding-top: 0.6rem; */
       margin: 0;
     }
     .email input{
@@ -488,15 +559,36 @@ footer{
       padding-top: 10px;
     }
     .email{
-      padding-left: 1.2rem;
+      padding-left: 1rem;
     }
-    .email b{
-      padding-left: 0.9rem;
+    .email div b{
+      padding-left: 0.3rem;
     }
   }
 }
 
-/* Preloader added by Abhishek  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ************************************************************************************************************  */
+/* ------------------------------------------- Preloader added by Abhishek ----------------------------------  */
+/* **********************************************************************************************************  */
 
 #preloader{
   display: flex;
@@ -506,6 +598,7 @@ footer{
   /* width: 100vw; */
   justify-content: center;
   align-items: center;
+  z-index: 100;
   
 }
 
@@ -515,7 +608,7 @@ footer{
   
 }
 
-/* ------------------------------- Animation Keyframes ---------------------------- */
+/* -------------- Animation Keyframes ----------- */
 @keyframes preloader-fade-out{
   100%{
     opacity:0;
