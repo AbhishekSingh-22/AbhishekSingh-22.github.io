@@ -22,14 +22,14 @@
   <!-- preloader div  -->
   <div id="preloader">
     <div class="flexcontainer">
-        <div class="logo flexitem1">
-            <img src="Logofortitle.png" alt="">
-        </div>
-        <div class="title flexitem2">
-            <img src="Freshmen_heading.png" alt="">
-        </div>
+      <div class="logo flexitem1">
+        <img src="Logofortitle.png" alt="">
+      </div>
+      <div class="title flexitem2">
+        <img src="Freshmen_heading.png" alt="">
+      </div>
     </div>
-</div>
+  </div>
 
 
   <header>
@@ -45,7 +45,7 @@
             <li><a href="aboutpage.html">About</a></li>
             <li><a href="#">Report Bug</a></li>
             <li><a href="#">Contact</a></li>
-            <button type="button">Submit Review</button>
+            <button type="button" id="navbtn">Submit Review</button>
           </ul>
         </div>
         <nav>
@@ -245,32 +245,40 @@
     let preloader = document.getElementById('preloader');
     let completed = false;
 
-    
+    if (performance.navigation.type === 1) {
+      // Page was reloaded
+      console.log("Page was reloaded");
+    } else {
+      // Page was not reloaded
+      console.log("Page was not reloaded");
+    }
+
     // checking whether the user is opening a new session or not
     // if its a new session then only the preloader will be shown otherwise it will be not shown
-    if (newsession == "false") {
+    if (newsession == "false ") {
       preloader.style.display = "none";
     }
 
 
+    if (performance.navigation.type === 1 || newsession != "false") {
+      preloader.style.display = "flex";
+      window.addEventListener("load", setTimeout(function () {
+        preloader.style.animation = "preloader-fade-out 0.25s ease-in-out forwards";
+        completed = true;
 
-    window.addEventListener("load", setTimeout(function () {
-      preloader.style.animation = "preloader-fade-out 0.3s ease-in-out forwards";
-      completed = true;
+        sessionStorage.setItem("newsession", "false");
 
-      sessionStorage.setItem("newsession", "false");
+        if (completed == true) {
+          setTimeout(function () {
+            preloader.style.display = "none";
 
-      if (completed == true) {
-        setTimeout(function () {
-          preloader.style.display = "none";
-
-        }, 800);
-      }
-
-
-    }, 5500));
+          }, 800);
+        }
 
 
+      }, 3000));
+
+    }
 
   </script>
 

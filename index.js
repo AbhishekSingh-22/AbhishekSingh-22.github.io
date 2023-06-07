@@ -245,7 +245,7 @@
               'Color': 'orange',
             },
 
-            'Priyanka roy':{
+            'Priyanka Roy':{
               'Teaching': 'Bad',
               'Evaluation': 'Bad',
               'Behaviour': 'Medium',
